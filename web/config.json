@@ -1,0 +1,9 @@
+{
+  "base_url": "https://open.bigmodel.cn/api/paas/v4",
+  "model": "autoglm-phone",
+  "api_key": "ffd644bafb1d44059d389339af60336a.KPF3GfyvFo3xTlCP",
+  "device_type": "adb",
+  "device_id": "192.168.1.9:5555",
+  "max_steps": 100,
+  "lang": "cn"
+}

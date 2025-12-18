@@ -1,0 +1,38 @@
+body{font-family:system-ui,Segoe UI,Helvetica,Arial; background:#f6f8fa; color:#111}
+.container{max-width:1200px;margin:24px auto;padding:16px}
+.card{background:#fff;padding:12px;margin-bottom:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+label{display:block;margin:6px 0}
+input[type=text], textarea, select, input[type=number]{width:100%;padding:8px;border:1px solid #ddd;border-radius:4px}
+.row{display:flex;gap:8px;margin-top:8px}
+button{padding:8px 12px;border-radius:6px;border:1px solid #0b5fff;background:#0b63ff;color:#fff;cursor:pointer}
+pre{background:#0f1720;color:#e6eef8;padding:12px;border-radius:6px;overflow:auto}
+ul{margin:8px 0 0 16px}
+
+/* Layout */
+.layout{display:flex;gap:16px;align-items:stretch;margin:0 auto}
+/* Left is portrait container (fixed narrower width) */
+.left{width:420px;min-width:320px}
+.right{flex:1}
+/* Use full available height minus header/padding for the layout so screenshot sizes with window */
+.layout{height:calc(100vh - 120px)}
+.screenshot-card{display:flex;flex-direction:column;height:100%}
+.screenshot-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+/* Screenshot wrapper uses portrait aspect ratio and centers the image */
+.screenshot-wrapper{width:100%;display:flex;align-items:center;justify-content:center;border-radius:6px;overflow:hidden;background: #f6f8fa;aspect-ratio:9/19}
+/* Default: show full image without cropping */
+.screenshot-wrapper img{width:auto;height:100%;max-width:100%;border-radius:0;object-fit:contain;display:block}
+.screenshot-info{display:flex;gap:12px;justify-content:flex-start;margin-top:8px;color:#666}
+
+/* Collapsible card styles */
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.collapse-toggle{background:#f0f4ff;border:1px solid #dce8ff;padding:4px 8px;border-radius:6px;cursor:pointer}
+.card.collapsed .card-body{display:none}
+
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 900px){
+  .layout{flex-direction:column;height:auto}
+  .right{width:100%}
+  .left{width:100%}
+  .screenshot-card{height:420px}
+}
+

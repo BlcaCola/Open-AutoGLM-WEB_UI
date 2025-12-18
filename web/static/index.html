@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open-AutoGLM Web UI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Open-AutoGLM Web UI</h1>
+
+    <div class="layout">
+      <div class="left">
+        <section class="card screenshot-card">
+          <div class="screenshot-toolbar">
+            <div>
+              <label><input type="checkbox" id="realtimeToggle" /> 实时更新 (3s)</label>
+              <button id="refreshScreenshot">刷新截图</button>
+            </div>
+          </div>
+          <div class="screenshot-wrapper">
+            <img id="screenshotImg" src="" alt="设备屏幕" />
+          </div>
+          <div class="screenshot-info">
+            <span id="screenshotSize">—</span>
+            <span id="screenshotApp">—</span>
+            <span id="screenshotTime">—</span>
+          </div>
+        </section>
+      </div>
+
+      <div class="right">
+        <section class="card card-collapsible">
+          <div class="card-header"><h2>模型配置</h2><button class="collapse-toggle" aria-expanded="true" aria-label="折叠">−</button></div>
+          <div class="card-body">
+          <label>Base URL <input id="base_url" type="text" /></label>
+          <label>Model <input id="model" type="text" /></label>
+          <label>API Key <input id="api_key" type="text" /></label>
+          <label>Device Type
+            <select id="device_type">
+              <option value="adb">ADB</option>
+              <option value="hdc">HDC</option>
+            </select>
+          </label>
+          <label>Device ID <input id="device_id" type="text" /></label>
+          <label>Max Steps <input id="max_steps" type="number" min="1" /></label>
+          <div class="row">
+            <button id="saveConfig">保存配置</button>
+            <button id="refreshConfig">刷新</button>
+          </div>
+          </div>
+        </section>
+
+        <section class="card card-collapsible">
+          <div class="card-header"><h2>设备</h2><button class="collapse-toggle" aria-expanded="true" aria-label="折叠">−</button></div>
+          <div class="card-body">
+          <div class="row">
+            <input id="connect_address" placeholder="ip:port 或 设备 id" />
+            <button id="btnConnect">连接</button>
+            <button id="btnDisconnect">断开</button>
+            <button id="btnList">列出设备</button>
+          </div>
+          <ul id="deviceList"></ul>
+          </div>
+        </section>
+
+        <section class="card card-collapsible">
+          <div class="card-header"><h2>运行任务</h2><button class="collapse-toggle" aria-expanded="true" aria-label="折叠">−</button></div>
+          <div class="card-body">
+          <textarea id="task" rows="3" placeholder="输入任务描述，例如：打开淘宝搜索无线耳机"></textarea>
+          <div class="row">
+            <button id="runTask">运行</button>
+          </div>
+          <pre id="result"></pre>
+          </div>
+        </section>
+
+        <section class="card card-collapsible">
+          <div class="card-header"><h2>应用列表</h2><button class="collapse-toggle" aria-expanded="true" aria-label="折叠">−</button></div>
+          <div class="card-body">
+          <button id="btnApps">显示支持的应用</button>
+          <ul id="apps"></ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
